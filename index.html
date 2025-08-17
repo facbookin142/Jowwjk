@@ -266,6 +266,21 @@
         <span class="label" style="font-family: var(--mqm-bet-font);">Join Telegram Channel 3</span>
         <span class="check" aria-hidden="true">✓</span>
       </a>
+      
+      <a id="btn4" class="btn primary" href="#" target="_blank" rel="noopener noreferrer" data-key="joined4" aria-label="Join Telegram Channel 4">
+        <span class="label" style="font-family: var(--mqm-bet-font);">Join Telegram Channel 4</span>
+        <span class="check" aria-hidden="true">✓</span>
+      </a>
+
+      <a id="btn5" class="btn primary" href="#" target="_blank" rel="noopener noreferrer" data-key="joined5" aria-label="Join Telegram Channel 5">
+        <span class="label" style="font-family: var(--mqm-bet-font);">Join Telegram Channel 5</span>
+        <span class="check" aria-hidden="true">✓</span>
+      </a>
+
+      <a id="btn6" class="btn primary" href="#" target="_blank" rel="noopener noreferrer" data-key="joined6" aria-label="Join Telegram Channel 6">
+        <span class="label" style="font-family: var(--mqm-bet-font);">Join Telegram Channel 6</span>
+        <span class="check" aria-hidden="true">✓</span>
+      </a>
 
       <a id="claimBtn" class="btn claim-btn" href="#" aria-label="Claim Code" style="font-family: var(--mqm-bet-font);">
         Claim ➜
@@ -292,9 +307,12 @@
 (function(){
   // Yahan par apne links aur code dalna hai
   const TELEGRAM_LINKS = {
-    'btn1': 'https://t.me/+hKgZfuW_AMUyNGQ1',
-    'btn2': 'https://t.me/+9SjQyYa8xGljYWFl',
-    'btn3': 'https://t.me/+95fg7ThpOEQ2ZWY1',
+    'btn1': 'https://t.me/+aDppnnI71Hw1Mjdl',
+    'btn2': 'https://t.me/+8uHFDaHVuiM3Yzg1',
+    'btn3': 'https://t.me/+XQ8zZtx0LVNjN2Y1',
+    'btn4': 'https://t.me/+H0qVOHlCpbZiYjA1',
+    'btn5': 'https://t.me/+LTMnAy88Dq5kMzhl',
+    'btn6': 'https://t.me/+nS9E4pIg4981Yzk9'
   };
   const MQM_CODE = "MQM-100200";
   const MQM_APP_LINK = "https://mqmshare.me?pid=393517155&pkg=com.mqm.bet";
@@ -302,10 +320,16 @@
   const KEY1 = 'joined1';
   const KEY2 = 'joined2';
   const KEY3 = 'joined3';
+  const KEY4 = 'joined4';
+  const KEY5 = 'joined5';
+  const KEY6 = 'joined6';
 
   const btn1 = document.getElementById('btn1');
   const btn2 = document.getElementById('btn2');
   const btn3 = document.getElementById('btn3');
+  const btn4 = document.getElementById('btn4');
+  const btn5 = document.getElementById('btn5');
+  const btn6 = document.getElementById('btn6');
   const claimBtn = document.getElementById('claimBtn');
   const copyBtn = document.getElementById('copyBtn');
   
@@ -317,6 +341,9 @@
   btn1.href = TELEGRAM_LINKS['btn1'];
   btn2.href = TELEGRAM_LINKS['btn2'];
   btn3.href = TELEGRAM_LINKS['btn3'];
+  btn4.href = TELEGRAM_LINKS['btn4'];
+  btn5.href = TELEGRAM_LINKS['btn5'];
+  btn6.href = TELEGRAM_LINKS['btn6'];
   mqmCodeDisplay.textContent = MQM_CODE;
 
   function setJoinedUI(el){
@@ -331,10 +358,16 @@
     const a1 = localStorage.getItem(KEY1) === '1';
     const a2 = localStorage.getItem(KEY2) === '1';
     const a3 = localStorage.getItem(KEY3) === '1';
+    const a4 = localStorage.getItem(KEY4) === '1';
+    const a5 = localStorage.getItem(KEY5) === '1';
+    const a6 = localStorage.getItem(KEY6) === '1';
     
     if(a1) setJoinedUI(btn1);
     if(a2) setJoinedUI(btn2);
     if(a3) setJoinedUI(btn3);
+    if(a4) setJoinedUI(btn4);
+    if(a5) setJoinedUI(btn5);
+    if(a6) setJoinedUI(btn6);
   }
 
   function attachClickMark(el, key){
@@ -347,14 +380,20 @@
   attachClickMark(btn1, KEY1);
   attachClickMark(btn2, KEY2);
   attachClickMark(btn3, KEY3);
+  attachClickMark(btn4, KEY4);
+  attachClickMark(btn5, KEY5);
+  attachClickMark(btn6, KEY6);
 
   claimBtn.addEventListener('click', function(event){
     event.preventDefault();
     const a1 = localStorage.getItem(KEY1) === '1';
     const a2 = localStorage.getItem(KEY2) === '1';
     const a3 = localStorage.getItem(KEY3) === '1';
+    const a4 = localStorage.getItem(KEY4) === '1';
+    const a5 = localStorage.getItem(KEY5) === '1';
+    const a6 = localStorage.getItem(KEY6) === '1';
 
-    if(a1 && a2 && a3){
+    if(a1 && a2 && a3 && a4 && a5 && a6){
       mainContent.style.display = 'none';
       codeSection.style.display = 'block';
     } else {
