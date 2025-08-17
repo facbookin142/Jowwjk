@@ -49,13 +49,14 @@
     margin-bottom: 15px;
   }
   .header-title {
-    color: #fff;
     font-size: 32px;
     font-weight: 800;
     margin: 0;
     letter-spacing: 1px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   }
+  .header-title .yellow { color: #FFD700; }
+  .header-title .green { color: #00FF00; }
   .card{
     width:100%;
     max-width:420px;
@@ -148,6 +149,12 @@
     transform:translateY(-2px);
     box-shadow: 0 10px 30px rgba(255,152,0,0.3);
   }
+  .to-win-img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin-top: 15px;
+  }
   .code-section{
     display: none;
     animation: slideInUp 0.5s ease-out;
@@ -205,11 +212,12 @@
     display: block;
     margin: 15px auto 0;
   }
-  .to-win-img {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
+  .download-text {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-secondary);
     margin-top: 15px;
+    margin-bottom: 0;
   }
   /* Responsive tweaks */
   @media (max-width:420px){
@@ -230,7 +238,11 @@
 <body>
   <div class="header-container">
     <img src="https://3mqmbet.com/assets/top_logo-D8g3Fn4i.png" alt="Top Logo" class="top-logo">
-    <h1 class="header-title" style="font-family: var(--mqm-bet-font); font-weight: 700;">MQM 100₹ Code</h1>
+    <h1 class="header-title" style="font-family: var(--mqm-bet-font); font-weight: 700;">
+      <span class="yellow">MQM</span>
+      <span class="green">100₹</span>
+      <span class="yellow">Code</span>
+    </h1>
   </div>
 
   <main class="card" role="main">
@@ -267,6 +279,9 @@
       <h3 style="font-family: var(--mqm-bet-font);"><img src="https://3mqmbet.com/assets/pic_icon-DYXznfOO.png" alt="MQM Logo" class="mqm-logo-display"> MQM Code</h3>
       <div id="mqm-code" class="mqm-code-display" style="font-family: var(--mqm-bet-font);">MQM-12345</div>
       <button id="copyBtn" class="copy-btn" style="font-family: var(--mqm-bet-font);">Copy</button>
+      
+      <p class="download-text" style="font-family: var(--mqm-bet-font);">👇Click Here To Download App👇</p>
+      
       <a href="https://mqmshare.me?pid=393517155&pkg=com.mqm.bet" target="_blank" rel="noopener noreferrer" aria-label="Download MQM App">
         <img src="https://2mqmbet.com/assets/down2-Ch5Ilmaj.png" alt="Download MQM App" class="download-link-img">
       </a>
