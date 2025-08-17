@@ -23,6 +23,7 @@
     --text-primary: #222;
     --text-secondary: #555;
     --border-color: #ddd;
+    --mqm-bet-font: 'Montserrat', sans-serif; /* Assuming Montserrat looks similar */
   }
   *{box-sizing:border-box}
   body{
@@ -33,7 +34,7 @@
     align-items:center;
     justify-content:flex-start;
     background: var(--body-bg);
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--mqm-bet-font);
     padding:20px;
     color: var(--text-primary);
   }
@@ -45,22 +46,22 @@
   }
   .top-logo {
     width: 250px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
   }
   .header-title {
-    color: var(--header-text-color);
-    font-size: 36px;
+    color: #fff;
+    font-size: 32px;
     font-weight: 800;
-    margin: 0 0 10px 0;
-    letter-spacing: 0.8px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+    margin: 0;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   }
   .card{
     width:100%;
     max-width:420px;
     background-color: var(--card-bg);
     border-radius:20px;
-    padding:30px;
+    padding:20px;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.3);
@@ -69,11 +70,22 @@
   }
   @keyframes pop { from{opacity:0; transform:translateY(15px) scale(.98)} to{opacity:1; transform:none} }
   @keyframes fadeIn { from{opacity:0;} to{opacity:1;} }
+  .page-title-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  .mqm-logo-small {
+    width: 60px;
+    height: auto;
+    margin-right: 15px;
+  }
   .page-title {
     color: var(--text-primary);
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 700;
-    margin: 0 0 20px 0;
+    margin: 0;
+    text-align: left;
   }
   .btn{
     display:flex;
@@ -82,12 +94,12 @@
     gap:14px;
     text-decoration:none;
     color:#fff;
-    padding:15px 20px;
-    margin:14px 0;
-    border-radius:14px;
+    padding:14px 18px;
+    margin:12px 0;
+    border-radius:12px;
     font-weight:600;
-    font-size:17px;
-    box-shadow: 0 7px 22px rgba(0,102,255,0.12);
+    font-size:16px;
+    box-shadow: 0 5px 18px rgba(0,102,255,0.15);
     transition: transform .15s ease, box-shadow .15s ease, background .2s ease;
     user-select:none;
     border-bottom: 3px solid transparent;
@@ -98,125 +110,165 @@
   }
   .btn.primary:hover{
     transform:translateY(-2px);
-    box-shadow: 0 10px 30px rgba(0,102,255,0.18);
-    border-bottom-color: rgba(0,102,255,0.5);
+    box-shadow: 0 8px 25px rgba(0,102,255,0.2);
+    border-bottom-color: rgba(0,102,255,0.6);
   }
   .btn .label{display:inline-block}
   .btn .check{
-    width:30px; height:30px; border-radius:50%;
+    width:28px; height:28px; border-radius:50%;
     display:inline-flex; align-items:center; justify-content:center;
-    font-weight:800; font-size:17px;
+    font-weight:800; font-size:16px;
     color:transparent; background:rgba(255,255,255,0.15);
     transition: all .25s cubic-bezier(.2,.9,.25,1);
     box-shadow: none;
   }
   .btn.joined{
     background: var(--secondary-gradient);
-    box-shadow: 0 10px 30px rgba(14,164,93,0.14);
+    box-shadow: 0 8px 25px rgba(14,164,93,0.18);
   }
   .btn.joined .label{ color:#fff }
   .btn.joined .check{
     color:var(--accent);
     background:#fff;
     transform: scale(1.05);
-    box-shadow: 6px 20px rgba(11,105,255,0.06);
+    box-shadow: 5px 15px rgba(11,105,255,0.08);
   }
   .claim-btn{
     background: var(--claim-gradient);
-    box-shadow: 0 7px 22px rgba(255,152,0,0.18);
-    border-bottom-color: rgba(255,152,0,0.5);
-    margin-top: 25px;
+    box-shadow: 0 5px 18px rgba(255,152,0,0.2);
+    border-bottom-color: rgba(255,152,0,0.6);
+    margin-top: 20px;
+    animation: pulse 1.5s infinite alternate;
+  }
+  @keyframes pulse {
+    from { box-shadow: 0 5px 18px rgba(255,152,0,0.2); }
+    to { box-shadow: 0 8px 25px rgba(255,152,0,0.35); }
   }
   .claim-btn:hover{
     transform:translateY(-2px);
-    box-shadow: 0 10px 30px rgba(255,152,0,0.25);
+    box-shadow: 0 10px 30px rgba(255,152,0,0.3);
   }
   .code-section{
     display: none;
-    animation: pop 420ms cubic-bezier(.2,.9,.2,1);
+    animation: slideInUp 0.5s ease-out;
     margin-top: 20px;
     text-align: center;
   }
+  @keyframes slideInUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
   .code-section h3{
-    font-size: 22px;
+    font-size: 20px;
     color: var(--text-primary);
-    margin-bottom: 10px;
+    margin-bottom: 15px;
   }
   .mqm-logo-display {
-    width: 80px; /* Adjust size as needed */
+    width: 60px;
     height: auto;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
   }
   .mqm-code-display{
-    font-size: 28px;
-    font-weight: 800;
+    font-size: 24px;
+    font-weight: 700;
     color: var(--green2);
     background: #f0f0f0;
-    padding: 15px 20px;
-    border-radius: 10px;
-    margin-bottom: 20px;
+    padding: 12px 18px;
+    border-radius: 8px;
+    margin-bottom: 15px;
     letter-spacing: 1px;
+    user-select: text;
   }
-  .download-btn{
+  .copy-btn, .download-link-img {
     background: var(--download-gradient);
-    box-shadow: 0 7px 22px rgba(244, 67, 54, 0.18);
-    border-bottom-color: rgba(244, 67, 54, 0.5);
+    box-shadow: 0 5px 18px rgba(244, 67, 54, 0.2);
+    border-bottom-color: rgba(244, 67, 54, 0.6);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 12px 18px;
+    border-radius: 12px;
+    text-decoration: none;
     margin-top: 10px;
+    display: inline-block;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
   }
-  .download-btn:hover{
+  .copy-btn:hover, .download-link-img:hover{
     transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(244, 67, 54, 0.25);
+    box-shadow: 0 8px 25px rgba(244, 67, 54, 0.3);
+  }
+  .download-link-img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    display: block;
+    margin: 15px auto 0;
+  }
+  .to-win-img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin-top: 15px;
   }
   /* Responsive tweaks */
   @media (max-width:420px){
     body{ padding:15px; }
-    .header-title { font-size: 30px; }
-    .card{ padding:25px }
-    .btn{ font-size:16px; padding:13px 18px; }
-    .mqm-logo-display {
-      width: 60px;
-    }
-    .top-logo {
-      width: 200px;
-    }
+    .header-title { font-size: 28px; }
+    .top-logo { width: 200px; margin-bottom: 10px; }
+    .card{ padding:15px }
+    .btn{ font-size:15px; padding:12px 16px; }
+    .mqm-logo-small { width: 45px; margin-right: 10px; }
+    .page-title { font-size: 16px; }
+    .mqm-logo-display { width: 45px; margin-bottom: 10px; }
+    .mqm-code-display { font-size: 20px; padding: 10px 15px; }
+    .copy-btn, .download-link-img { font-size: 15px; padding: 10px 15px; }
+    .top-logo { width: 180px; }
   }
 </style>
 </head>
 <body>
   <div class="header-container">
     <img src="https://3mqmbet.com/assets/top_logo-D8g3Fn4i.png" alt="Top Logo" class="top-logo">
-    <h1 class="header-title"><img src="https://3mqmbet.com/assets/pic_icon-DYXznfOO.png" alt="MQM Logo" style="height: 40px; vertical-align: middle;"> MQM 100₹ Code</h1>
+    <h1 class="header-title" style="font-family: var(--mqm-bet-font); font-weight: 700;">MQM 100₹ Code</h1>
   </div>
 
   <main class="card" role="main">
     <div id="main-content">
-      <h2 class="page-title"><img src="https://3mqmbet.com/assets/pic_icon-DYXznfOO.png" alt="MQM Logo" class="mqm-logo-display"> Join Telegram Channels</h2>
+      <div class="page-title-container">
+        <img src="https://3mqmbet.com/assets/pic_icon-DYXznfOO.png" alt="MQM Logo" class="mqm-logo-small">
+        <h2 class="page-title" style="font-family: var(--mqm-bet-font);">Join Telegram Channel First</h2>
+      </div>
       
       <a id="btn1" class="btn primary" href="#" target="_blank" rel="noopener noreferrer" data-key="joined1" aria-label="Join Telegram Channel 1">
-        <span class="label">Join Telegram Channel 1</span>
+        <span class="label" style="font-family: var(--mqm-bet-font);">Join Telegram Channel 1</span>
         <span class="check" aria-hidden="true">✓</span>
       </a>
 
       <a id="btn2" class="btn primary" href="#" target="_blank" rel="noopener noreferrer" data-key="joined2" aria-label="Join Telegram Channel 2">
-        <span class="label">Join Telegram Channel 2</span>
+        <span class="label" style="font-family: var(--mqm-bet-font);">Join Telegram Channel 2</span>
         <span class="check" aria-hidden="true">✓</span>
       </a>
 
       <a id="btn3" class="btn primary" href="#" target="_blank" rel="noopener noreferrer" data-key="joined3" aria-label="Join Telegram Channel 3">
-        <span class="label">Join Telegram Channel 3</span>
+        <span class="label" style="font-family: var(--mqm-bet-font);">Join Telegram Channel 3</span>
         <span class="check" aria-hidden="true">✓</span>
       </a>
 
-      <a id="claimBtn" class="btn claim-btn" href="#" aria-label="Claim Code">
-        Claim Code ➜
+      <a id="claimBtn" class="btn claim-btn" href="#" aria-label="Claim Code" style="font-family: var(--mqm-bet-font);">
+        Claim ➜
       </a>
+      
+      <img src="https://2mqmbet.com/assets/btn_TOWIN-DkM-LA8B.png" alt="To Win" class="to-win-img">
+
     </div>
     
     <div id="code-section" class="code-section">
-      <h3><img src="https://3mqmbet.com/assets/pic_icon-DYXznfOO.png" alt="MQM Logo" class="mqm-logo-display"> MQM Code</h3>
-      <div id="mqm-code" class="mqm-code-display">MQM-12345</div>
-      <a id="downloadBtn" class="btn download-btn" href="#" target="_blank" rel="noopener noreferrer" aria-label="Download MQM App">
-        <img src="https://3mqmbet.com/assets/pic_icon-DYXznfOO.png" alt="MQM Logo" style="height: 24px; vertical-align: middle; margin-right: 8px;"> MQM Download ➜
+      <h3 style="font-family: var(--mqm-bet-font);"><img src="https://3mqmbet.com/assets/pic_icon-DYXznfOO.png" alt="MQM Logo" class="mqm-logo-display"> MQM Code</h3>
+      <div id="mqm-code" class="mqm-code-display" style="font-family: var(--mqm-bet-font);">MQM-12345</div>
+      <button id="copyBtn" class="copy-btn" style="font-family: var(--mqm-bet-font);">Copy</button>
+      <a href="https://mqmshare.me?pid=393517155&pkg=com.mqm.bet" target="_blank" rel="noopener noreferrer" aria-label="Download MQM App">
+        <img src="https://2mqmbet.com/assets/down2-Ch5Ilmaj.png" alt="Download MQM App" class="download-link-img">
       </a>
     </div>
   </main>
@@ -230,7 +282,7 @@
     'btn3': 'https://t.me/+95fg7ThpOEQ2ZWY1',
   };
   const MQM_CODE = "MQM-100200";
-  const MQM_APP_LINK = "https://3mqmbet.com/"; // Yahan MQM app ka link dalen
+  const MQM_APP_LINK = "https://mqmshare.me?pid=393517155&pkg=com.mqm.bet";
 
   const KEY1 = 'joined1';
   const KEY2 = 'joined2';
@@ -240,7 +292,7 @@
   const btn2 = document.getElementById('btn2');
   const btn3 = document.getElementById('btn3');
   const claimBtn = document.getElementById('claimBtn');
-  const downloadBtn = document.getElementById('downloadBtn');
+  const copyBtn = document.getElementById('copyBtn');
   
   const mainContent = document.getElementById('main-content');
   const codeSection = document.getElementById('code-section');
@@ -250,7 +302,6 @@
   btn1.href = TELEGRAM_LINKS['btn1'];
   btn2.href = TELEGRAM_LINKS['btn2'];
   btn3.href = TELEGRAM_LINKS['btn3'];
-  downloadBtn.href = MQM_APP_LINK;
   mqmCodeDisplay.textContent = MQM_CODE;
 
   function setJoinedUI(el){
@@ -294,6 +345,15 @@
     } else {
       alert('Join All Telegram For Code');
     }
+  });
+
+  copyBtn.addEventListener('click', function() {
+    const code = mqmCodeDisplay.textContent;
+    navigator.clipboard.writeText(code).then(function() {
+      alert('MQM Code Copied!');
+    }, function(err) {
+      alert('Could not copy code: ', err);
+    });
   });
 
   window.addEventListener('DOMContentLoaded', refreshState);
